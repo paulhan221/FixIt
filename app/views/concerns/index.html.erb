@@ -12,6 +12,7 @@
   <tbody>
     <% @concerns.each do |concern| %>
       <tr>
+        <td><%=concern.title%> :</td>
         <td><%= link_to 'Show', concern %></td>
         <td><%= link_to 'Edit', edit_concern_path(concern) %></td>
         <td><%= link_to 'Destroy', concern, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -22,4 +23,5 @@
 
 <br>
 
-<%= link_to 'New Concern', new_concern_path %>
+<%= link_to 'New Concern', new_concern_path %><br>
+<%= link_to "Back", root_path %>
