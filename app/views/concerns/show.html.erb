@@ -1,10 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <h2><%= @concern.title %></h2><br>
-<h4>Description: <%= @concern.description %></h4><br>
-<h4>Adress: <%= @concern.address %></h4><br>
+<h4>Description:<br><%= @concern.description %><br>
+<h4>Address: <%= @concern.address %></h4><br>
 <h4>District: <%= @concern.district %></h4><br>
-
 
   <p><%= @concern.upvote_count %> people agree!</p>
   <p><%= @concern.downvote_count %> people disagree!</p>
@@ -16,7 +15,7 @@
   <%= f.hidden_field :user_id, :value => 1 %>
   <%= f.hidden_field :upvote, :value => true %>
   <%= f.submit "Agree" %>
-<% end %>
+<% end %> <br>
 
 <%= form_for @concern.votes.new do |f| %>
   <%#= f.hidden_field :user_id, :value => current_user.id %>
@@ -25,8 +24,6 @@
   <%= f.hidden_field :upvote, :value => false %>
   <%= f.submit "Disagree" %>
 <% end %>
-
-
 
 
 

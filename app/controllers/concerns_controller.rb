@@ -62,11 +62,6 @@ class ConcernsController < ApplicationController
     end
   end
 
-
-
-
-
-
   # def upvote
   #   @concern = Concern.find(params[:concern_id])
   #   if @concern.votes.count == 0
