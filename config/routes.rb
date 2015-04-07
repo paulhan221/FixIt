@@ -6,7 +6,15 @@ Rails.application.routes.draw do
 
   resources :concerns
 
-
   resources :users
+
+  resources :sessions
+
+  get '/login', to: 'sessions#new'
+
+  get '/logout', to: 'sessions#destroy'
+
+  get '/auth/facebook/callback', to: 'sessions#create'
+
 
 end
