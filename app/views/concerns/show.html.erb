@@ -14,14 +14,34 @@
   <%= f.hidden_field :concern_id, :value => @concern.id %>
   <%= f.hidden_field :upvote, :value => true %>
   <%= f.submit "Agree" %>
-<% end %> <br>
-
-<%= form_for @concern.votes.new do |f| %>
-  <%= f.hidden_field :voter_id, :value => @current_user.id %>
-  <%= f.hidden_field :concern_id, :value => @concern.id %>
   <%= f.hidden_field :upvote, :value => false %>
   <%= f.submit "Disagree" %>
+<% end %> 
+
+<br>
+<% unless @concern.comments.empty? %>
+<h4>Previous Comments:</h4>
+<ul>
+  <% @concern.comments.each do |comment| %>
+  <li><%= comment.content %></li>
+  <%= comment.created_at %><br>
+  <% @user = User.find(params[:id]) %>
+  <%= @user.name %>
+  <% end %>
+</ul>
 <% end %>
+
+<br>
+<br>
+<h4>New Comment</h4>
+<%= form_tag("/concerns/#{@concern.id}/comments") do %>
+  <%= text_area_tag('comment[content]', placeholder="Post a comment") %><br>
+  <%= submit_tag "Create Comment" %>
+<% end %>
+
+
 <%= link_to 'Edit', edit_concern_path(@concern) %> |
 <% end %>
 <%= link_to 'Back', concerns_path %>
+
+

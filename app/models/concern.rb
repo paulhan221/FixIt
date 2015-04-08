@@ -3,6 +3,7 @@ class Concern < ActiveRecord::Base
   belongs_to :zipcode
   has_many :votes
   has_many :voters, through: :votes, source: :user
+  has_many :comments, dependent: :destroy
 
   def upvote_count
     self.votes.where(:upvote => true).count
