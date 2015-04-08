@@ -13,6 +13,14 @@
 
 ActiveRecord::Schema.define(version: 20150408145125) do
 
+  create_table "comments", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.integer  "concern_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "concerns", force: :cascade do |t|
     t.string   "title"
     t.text     "description"

@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   resources :votes, only: [:create]
 
-  resources :concerns
+  resources :concerns do
+  	resources :comments
+  end
 
   resources :users
 
