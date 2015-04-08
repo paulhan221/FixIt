@@ -17,4 +17,11 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def current_user_can_vote?(concern)
+    if current_user 
+      Vote.where(:voter_id => current_user.id, :concern_id => concern.id).empty?
+    end
+  end
+
+  
 end

@@ -10,6 +10,7 @@ class ConcernsController < ApplicationController
   # GET /concerns/1
   # GET /concerns/1.json
   def show
+
   end
 
   # GET /concerns/new
@@ -92,6 +93,18 @@ class ConcernsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def concern_params
-      params.require(:concern).permit(:title, :description, :address, :district)
+      params.require(:concern).permit(:title, :description, :state_id, :creator_id)
     end
 end
+
+ # params.require(:post).permit(:name, :content, :tag_ids => [], tags_attributes: [:name])
+
+
+
+
+
+
+
+
+
+

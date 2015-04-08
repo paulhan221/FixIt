@@ -1,16 +1,20 @@
 class Vote < ActiveRecord::Base
   belongs_to :voter, class_name: :user
   belongs_to :concern
-  validate :unique_vote?
+  # validate :unique_vote?
+
+  def voted?
+    
+  end
 
   private
   
-  def unique_vote?
-    @voter = User.find(self.voter_id)
-    unless @voter.can_vote?(self.concern_id)
-      errors.add(:unique, "You already voted on this concern.")
-    end
-  end
+  # def unique_vote?
+  #   @voter = User.find(self.voter_id)
+  #   if @voter.can_vote?(self.concern_id)
+  #     errors.add(:unique, "You already voted on this concern.")
+  #   end
+  # end
 end
 
 

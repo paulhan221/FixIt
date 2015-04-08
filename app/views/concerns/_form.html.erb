@@ -16,10 +16,9 @@
     <%= f.text_field :title %><br>
     <%= f.label :description %><br>
     <%= f.text_area :description %><br>
-    <%= f.label :district %><br>
-    <%= f.text_field :district %><br>
-    <%= f.label :address %><br>
-    <%= f.text_field :address %><br>
+    <%= f.label :state_id %><br>
+    <%= f.collection_select(:state_id, State.all, :id, :name) %>
+    <%= f.hidden_field :creator_id, :value => current_user.id %>
   </div>
 
   <div class="actions">

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :votes, only: [:create]
 
+  resources :states, only: [:show, :index]
+
   resources :concerns do
   	resources :comments
   end
@@ -11,6 +13,8 @@ Rails.application.routes.draw do
   resources :users
 
   resources :sessions
+
+  get '/state/concerns', to: 'states#show'
 
   get '/login', to: 'sessions#new'
 

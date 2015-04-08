@@ -1,0 +1,8 @@
+
+<br><br>
+<%= @state.name %>
+<br>
+<% @state.concerns.each do |concern| %>
+  <%= link_to concern.title, concern_path(concern) %>
+  <%= concern.description %>
+<% end %>

@@ -3,7 +3,6 @@ class VotesController < ApplicationController
   def create
     @vote = Vote.new(vote_params)
     @concern = Concern.find(vote_params[:concern_id])
-
     if @vote.save
       redirect_to concern_path(@concern)
     else

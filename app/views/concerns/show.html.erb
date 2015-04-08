@@ -2,18 +2,22 @@
 
 <h2><%= @concern.title %></h2><br>
 <h4>Description:<br><%= @concern.description %><br>
-<h4>Address: <%= @concern.address %></h4><br>
-<h4>District: <%= @concern.district %></h4><br>
+<h4>State: <%= @concern.state.name %></h4>
 
   <p><%= @concern.upvote_count %> people agree!</p>
   <p><%= @concern.downvote_count %> people disagree!</p>
 
-<% if logged_in? %>
+<% if (current_user != @concern.creator) && current_user_can_vote?(@concern) %>
 <%= form_for @concern.votes.new do |f| %>
-  <%= f.hidden_field :voter_id, :value => @current_user.id %>
+  <%= f.hidden_field :voter_id, :value => current_user.id %>
   <%= f.hidden_field :concern_id, :value => @concern.id %>
   <%= f.hidden_field :upvote, :value => true %>
   <%= f.submit "Agree" %>
+<% end %> 
+
+<%= form_for @concern.votes.new do |f| %>
+  <%= f.hidden_field :voter_id, :value => current_user.id %>
+  <%= f.hidden_field :concern_id, :value => @concern.id %>
   <%= f.hidden_field :upvote, :value => false %>
   <%= f.submit "Disagree" %>
 <% end %> 
@@ -25,8 +29,7 @@
   <% @concern.comments.each do |comment| %>
   <li><%= comment.content %></li>
   <%= comment.created_at %><br>
-  <% @user = User.find(params[:id]) %>
-  <%= @user.name %>
+  <%= @current_user.name %>
   <% end %>
 </ul>
 <% end %>
