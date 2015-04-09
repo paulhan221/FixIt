@@ -12,6 +12,7 @@
 <!---------NYTIMES ARTICLES--------->
 
 <br>
+<h3> New York Times Articles </h3><br><br>
 <ul>
 <% @articles.each do |article| %>
   <h4><u><%= link_to article.headline, article.web_url %></u></h4>
@@ -24,7 +25,7 @@
 <!--------- SENATORS -------->
 
 <br><br><br>
-<h3>Senators: </h3>
+<h3><%= @state.name %> Senators: </h3>
 <h2><%= @senator1_first_name %> <%= @senator1_last_name %> (<%=@senator1_party%>)</h2>
 Phone: <%= @senator1_phone %><br>
 Email: <%= @senator1_email %><br>
