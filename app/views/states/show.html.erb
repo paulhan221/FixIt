@@ -1,10 +1,9 @@
 <h1><%= @state.name %></h1>
+<h1>I'm from state show</h1>
 
 <% @state.concerns.each do |concern| %>
   <li><%= link_to concern.title, concern_path(concern) %></li>
   <%= link_to concern.title, concern_path(concern) %>
   <%= concern.description %>
-  <%= @legistor_first_name %>
-  <%= link_to concern.title, concern_path(concern) %>
-  <%= concern.description %>
 <% end %>
+<h2><%= @legistor_first_name %></h2>
