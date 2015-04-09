@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h2>State: <%= @concern.state.name %></h2>
+<h2>State: <%= link_to @concern.state.name, state_concerns_path(@concern.state) %></h2>
 <h2><%= @concern.title %></h2>
 <p>Description:<br><%= @concern.description %></p>
 <p><%= @concern.upvote_count %> people agree!</p>

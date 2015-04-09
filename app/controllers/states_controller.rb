@@ -5,7 +5,7 @@ class StatesController < ApplicationController
   end
 
   def show
-    @state = State.find(params[:state][:state_id])
+    @state = State.find(state_id)
 
     first_senator = Legislator.new(@state.name)
     second_senator = Legislator.new(@state.name)
@@ -37,4 +37,10 @@ class StatesController < ApplicationController
     @senator2_office = second_senator.senator2_office
   end
 
+  private
+  def state_id
+    params[:state] ? params[:state][:state_id] : params[:format]
+  end
+
 end
+
