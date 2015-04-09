@@ -32,4 +32,7 @@ module SessionsHelper
     end
   end
 
+  def current_user_name
+    "Hello, #{current_user.name}" if current_user
+  end
 end
