@@ -16,4 +16,8 @@ class Concern < ActiveRecord::Base
   def total_votes
     upvote_count + downvote_count
   end
+
+  def votes_sum
+    upvote_count - downvote_count
+  end
 end
