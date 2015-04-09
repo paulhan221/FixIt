@@ -1,6 +1,8 @@
 <h1>Welcome to FixIt</h1>
 
-<%= link_to "All concerns", concerns_path %>
+<% if current_user %>
+  <%= link_to "My concerns", user_path(current_user) %>
+<% end %>
 <%= form_tag("/state/concerns", method: "get") do %>
   <%= collection_select(:state, :state_id, State.all, :id, :name) %>
   <%= submit_tag "FIND" %>
@@ -9,7 +11,28 @@
 <% if logged_in? %>
   <%= link_to "Create concern", new_concern_path %>
 <% else %>
-   <%= "Please log in to create a new concern" %>
+  <%= "Please log in to create a new concern" %>
 <% end %>
 
 
+=======================================================================
+<table>
+  <thead>
+    <tr>
+      <td>Total Votes</td>
+      <td>Concerns</td>
+      <td>Upvotes</td>
+      <td>Downvotes</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @concerns.each do |c| %>
+      <tr>
+        <td><%= c.total_votes %></td>
+        <td><%= link_to c.title, concern_path(c)%></td>
+        <td>+<%= c.upvote_count %></td>
+        <td>-<%= c.downvote_count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

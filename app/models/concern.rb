@@ -13,4 +13,7 @@ class Concern < ActiveRecord::Base
     self.votes.where(:upvote => false).count
   end
 
+  def total_votes
+    upvote_count + downvote_count
+  end
 end

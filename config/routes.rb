@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   root to: 'welcome#index'
 
   resources :votes, only: [:create]
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   	resources :comments
   end
 
-  resources :users
+  resources :users, only: [:show, :destroy]
 
   resources :sessions
 

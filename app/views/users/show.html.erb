@@ -1,15 +1,7 @@
 <p id="notice"><%= notice %></p>
-
 <h1><%= @user.name %></h1>
-<br>
-Concerns:<br><br>
-<ul>
-<% @user.created_concerns.each do |concern| %>
-  <li><%= link_to concern.title, concern_path(concern) %></li>
-<% end %>
+<h3>Concerns:</h3><ul>
+  <% @user.created_concerns.each do |concern| %>
+    <li><%= link_to concern.title, concern_path(concern) %></li>
+  <% end %>
 </ul>
-
-
-<br><br>
-<%= link_to 'Edit', edit_user_path(@user) %> 
-<%= link_to 'Back', users_path %>
