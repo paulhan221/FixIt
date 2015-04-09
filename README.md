@@ -1,5 +1,22 @@
 # FiXit
 
+###  Things to do
+ ===1.  identify current user on the page ( hello, lindsay )
+2.  On state concern page say 'there s no concerns for current state'
+         if none yet created
+3. Fix current tests
+4. Implement few new tests. think about it
+5. fix users index page, to not let any user remove any kind of user.
+   Add admin
+6. Fix concern display page - if concern exists but user is removed is it still gonna work?
+7. Fix views at least a little bootstrap
+8. users/new doesn't work - remove such functionality at all?
+9. w3. Fix current tests, that were genereted automatucally.
+10. create seed files.
+11. Display all the concerns on the home page
+12. Implement search for concern.
+13. Filter by most votes
+
 ## Description
 
 App that is definitely going to make this world a better place

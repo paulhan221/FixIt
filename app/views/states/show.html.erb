@@ -1,11 +1,65 @@
 <h1><%= @state.name %></h1>
 
 <% @state.concerns.each do |concern| %>
-  <%= link_to concern.title, concern_path(concern) %>
-  <%= concern.description %>
+  <li><%= link_to concern.title, concern_path(concern) %>
+  <%= concern.upvote_count %> Agree
+  <%= concern.downvote_count %> Disagree
+  </li>
+
 <% end %>
 
-  <%= @legistor_first_name %>
 
-  <li><%= link_to concern.title, concern_path(concern) %></li>
+
+
+
+<!--------- SENATORS -------->
+
+<br><br><br>
+<h3>Senators: </h3>
+<h2><%= @senator1_first_name %> <%= @senator1_last_name %> (<%=@senator1_party%>)</h2>
+Phone: <%= @senator1_phone %><br>
+Email: <%= @senator1_email %><br>
+Office: <%= @senator1_office %><br><br>
+Find Senator <%= @senator1_last_name %> online: 
+<% if !@senator1_website.nil? %>
+<%= link_to "Website", @senator1_website %>
+<% end %>
+<% if !@senator1_facebook.nil? %>
+<%= link_to "Facebook", "http://www.facebook.com/#{@senator1_facebook}" %>
+<% end %>
+<% if !@senator1_twitter.nil? %>
+<%= link_to "Twitter", "http://www.twitter.com/#{@senator1_twitter}" %>
+<% end %>
+<% if !@senator1_youtube.nil? %>
+<%= link_to "Youtube", "http://www.youtube.com/#{@senator1_youtube}" %>
+<% end %>
+<% if !@senator1_votesmart.nil? %>
+<%= link_to "Votesmart", "http://votesmart.org/candidate/biography/#{@senator1_votesmart}" %>
+<% end %><br>
+<% if !@senator1_contact.nil? %>
+<%= link_to "Contact", @senator1_contact %>
+<% end %>
+
+<h2><%= @senator2_first_name %> <%= @senator2_last_name %> (<%=@senator2_party%>)</h2><br>
+Phone: <%= @senator2_phone %><br>
+Email: <%= @senator2_email %><br>
+Office: <%= @senator2_office %><br><br>
+Find Senator <%= @senator2_last_name %> online: 
+<% if !@senator2_website.nil? %>
+<%= link_to "Website", @senator2_website %>
+<% end %>
+<% if !@senator2_facebook.nil? %>
+<%= link_to "Facebook", "http://www.facebook.com/#{@senator2_facebook}" %>
+<% end %>
+<% if !@senator2_twitter.nil? %>
+<%= link_to "Twitter", "http://www.twitter.com/#{@senator2_twitter}" %>
+<% end %>
+<% if !@senator2_youtube.nil? %>
+<%= link_to "Youtube", "http://www.youtube.com/#{@senator2_youtube}" %>
+<% end %>
+<% if !@senator2_votesmart.nil? %>
+<%= link_to "Votesmart", "http://votesmart.org/candidate/biography/#{@senator2_votesmart}" %>
+<% end %><br>
+<% if !@senator2_contact.nil? %>
+<%= link_to "Contact", @senator2_contact %>
 <% end %>
