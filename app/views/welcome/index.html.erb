@@ -1,8 +1,10 @@
+<div class = "jumbotron">
 <h1>Welcome to FixIt</h1>
 
 <% if current_user %>
   <%= link_to "My concerns", user_path(current_user) %>
 <% end %>
+
 <%= form_tag("/state/concerns", method: "get") do %>
   <%= collection_select(:state, :state_id, State.all, :id, :name) %>
   <%= submit_tag "FIND" %>
@@ -18,7 +20,7 @@
   <%= text_field_tag (:keyword) %>
   <%= submit_tag 'search' %>
 <% end %>
-
+</div>
 <h3>All the concerns</h3>
 <table>
   <thead>
