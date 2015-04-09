@@ -17,7 +17,6 @@ class Legislator
 
 
 
-
   ###### Senator 1 ######
 
   def senator1_first_name

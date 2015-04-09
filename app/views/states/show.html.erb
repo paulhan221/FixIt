@@ -9,7 +9,16 @@
 <% end %>
 
 
+<!---------NYTIMES ARTICLES--------->
 
+<br>
+<ul>
+<% @articles.each do |article| %>
+  <h4><u><%= link_to article.headline, article.web_url %></u></h4>
+  <h6><%= article.pub_date.gsub(/T.+/, "")%> </h6>
+  <h5>"<%= article.snippet %>"</h5><br><br>
+<% end %>
+</ul>
 
 
 <!--------- SENATORS -------->

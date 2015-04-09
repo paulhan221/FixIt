@@ -35,12 +35,16 @@ class StatesController < ApplicationController
     @senator2_youtube = second_senator.senator2_youtube
     @senator2_party = second_senator.senator2_party
     @senator2_office = second_senator.senator2_office
-  end
 
+    @article_results = HTTParty.get("http://api.nytimes.com/svc/search/v2/articlesearch.json?q=#{URI.encode(@state.name)}+state&sort=newest&api-key=89e284f8eda6570a89f89d232d8aa6d6%3A0%3A71812658")
+    # @article1 = Article.new(@state.name)
+    @articles = []
+    @article_results["response"]["docs"][0..4].each do |article|
+      @articles << Article.new(@state.name, article["headline"]["main"], article["web_url"], article["snippet"], article["abstract"], article["pub_date"])
+    end
+  end
   private
   def state_id
     params[:state] ? params[:state][:state_id] : params[:format]
   end
-
 end
-
