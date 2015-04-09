@@ -4,10 +4,6 @@ class User < ActiveRecord::Base
   has_many :voted_concerns, through: :votes, source: :concern
   has_many :comments
 
-  # def can_vote?(concern_id)
-  #   !Vote.where(:voter_id => self.id, :concern_id => concern_id)
-  # end
-
   def self.create_with_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
