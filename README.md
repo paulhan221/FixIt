@@ -13,7 +13,7 @@
 8. === users/new doesn't work - remove such functionality at all?
 10.===  create seed files.
 11.===  Display all the concerns on the home page
-12. Implement search for concern.
+12.=== Implement search for concern.
 13. Filter by most votes
 
 ## Description

@@ -19,3 +19,16 @@ end
   concern.creator_id = rand(20)
   concern.save
 end
+
+10000.times do |i|
+  uid = rand(100) + 1
+  cid = rand(100) + 1
+  Vote.create(voter_id: uid, concern_id: cid, upvote: true)
+end
+
+
+10000.times do |i|
+  uid = rand(100) + 1
+  cid = rand(100) + 1
+  Vote.create(voter_id: uid, concern_id: cid, upvote: false)
+end
