@@ -17,7 +17,7 @@ module SessionsHelper
     !current_user.nil?
   end
 
-  def current_user_can_vote?(concern)
+  def user_can_vote?(concern)
     attributes = {:voter_id => current_user.id, :concern_id => concern.id}
     # absence of record means user hasn't voted yet
     vote = Vote.where(attributes).first
