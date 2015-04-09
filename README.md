@@ -1,8 +1,8 @@
-# Shitracker
-hi there )
+# FiXit
+
 ## Description
 
-Add a short description of your app.
+App that is definitely going to make this world a better place
 
 ## Screenshots
 

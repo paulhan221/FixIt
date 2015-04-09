@@ -7,12 +7,10 @@ class Concern < ActiveRecord::Base
 
   def upvote_count
     self.votes.where(:upvote => true).count
-    #make into sql
   end
 
   def downvote_count
     self.votes.where(:upvote => false).count
-    #make into sql
   end
 
 end

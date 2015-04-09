@@ -18,10 +18,18 @@ module SessionsHelper
   end
 
   def current_user_can_vote?(concern)
-    if current_user 
-      Vote.where(:voter_id => current_user.id, :concern_id => concern.id).empty?
+    attributes = {:voter_id => current_user.id, :concern_id => concern.id}
+    # absence of record means user hasn't voted yet
+    vote = Vote.where(attributes).first
+    (current_user != concern.creator) && !vote
+  end
+
+  def login_logout_links
+    if logged_in?
+      link_to 'Logout', logout_path
+    else
+      link_to 'Log in with Facebook!', login_path
     end
   end
 
-  
 end
