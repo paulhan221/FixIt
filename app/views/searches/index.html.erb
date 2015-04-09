@@ -1,0 +1,30 @@
+<br>
+<%= link_to 'Go Back', root_path %>
+<h1>Search results</h1>
+<% if @results.empty?  %>
+  "No match found!!!!! )))"
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <td>Concerns</td>
+        <td>Upvotes</td>
+        <td>Downvotes</td>
+        <td>Result</td>
+        <td>Total Votes</td>
+
+      </tr>
+    </thead>
+    <tbody>
+      <% @results.each do |res| %>
+        <tr>
+          <td><%= link_to res.title, res %></td>
+          <td><%= res.upvote_count %></td>
+          <td><%= res.downvote_count %></td>
+          <td><%= res.votes_sum %></td>
+          <td><%= res.total_votes %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
