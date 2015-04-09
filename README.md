@@ -1,7 +1,7 @@
 # FiXit
 
 ###  Things to do
-1.  identify current user on the page ( hello, lindsay )
+ ===1.  identify current user on the page ( hello, lindsay )
 2.  On state concern page say 'there s no concerns for current state'
          if none yet created
 3. Fix current tests
