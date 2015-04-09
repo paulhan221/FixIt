@@ -1,7 +1,5 @@
+<h1><%= @state.name %></h1>
 
-<br><br>
-<%= @state.name %>
-<br>
 <% @state.concerns.each do |concern| %>
   <%= link_to concern.title, concern_path(concern) %>
   <%= concern.description %>
@@ -9,3 +7,5 @@
 
   <%= @legistor_first_name %>
 
+  <li><%= link_to concern.title, concern_path(concern) %></li>
+<% end %>

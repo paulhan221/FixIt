@@ -1,21 +1,15 @@
 <h1>Welcome to FixIt</h1>
 
 <%= link_to "All concerns", concerns_path %>
-
-
-
 <%= form_tag("/state/concerns", method: "get") do %>
   <%= collection_select(:state, :state_id, State.all, :id, :name) %>
-  <%= submit_tag "find" %>
+  <%= submit_tag "FIND" %>
 <% end %>
 
-
-
-
 <% if logged_in? %>
-<%= link_to "Create concern", new_concern_path %>
+  <%= link_to "Create concern", new_concern_path %>
 <% else %>
-<%= "Please log in to create a new concern" %>
+   <%= "Please log in to create a new concern" %>
 <% end %>
 
 

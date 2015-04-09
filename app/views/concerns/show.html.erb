@@ -1,50 +1,40 @@
 <p id="notice"><%= notice %></p>
+<h2>State: <%= @concern.state.name %></h2>
+<h2><%= @concern.title %></h2>
+<p>Description:<br><%= @concern.description %></p>
+<p><%= @concern.upvote_count %> people agree!</p>
+<p><%= @concern.downvote_count %> people disagree!</p>
 
-<h2><%= @concern.title %></h2><br>
-<h4>Description:<br><%= @concern.description %><br>
-<h4>State: <%= @concern.state.name %></h4>
-
-  <p><%= @concern.upvote_count %> people agree!</p>
-  <p><%= @concern.downvote_count %> people disagree!</p>
-
-<% if (current_user != @concern.creator) && current_user_can_vote?(@concern) %>
-<%= form_for @concern.votes.new do |f| %>
-  <%= f.hidden_field :voter_id, :value => current_user.id %>
-  <%= f.hidden_field :concern_id, :value => @concern.id %>
-  <%= f.hidden_field :upvote, :value => true %>
-  <%= f.submit "Agree" %>
-<% end %> 
-
-<%= form_for @concern.votes.new do |f| %>
-  <%= f.hidden_field :voter_id, :value => current_user.id %>
-  <%= f.hidden_field :concern_id, :value => @concern.id %>
-  <%= f.hidden_field :upvote, :value => false %>
-  <%= f.submit "Disagree" %>
-<% end %> 
-
-<br>
-<% unless @concern.comments.empty? %>
-<h4>Previous Comments:</h4>
-<ul>
-  <% @concern.comments.each do |comment| %>
-  <li><%= comment.content %></li>
-  <%= comment.created_at %><br>
-  <%= @current_user.name %>
+<% if user_can_vote?(@concern) %>
+  <%= form_for @concern.votes.new do |f| %>
+    <%= f.hidden_field :voter_id, :value => current_user.id %>
+    <%= f.hidden_field :concern_id, :value => @concern.id %>
+    <%= f.hidden_field :upvote, :value => true %>
+    <%= f.submit "Agree" %>
   <% end %>
-</ul>
+  <br>
+  <%= form_for @concern.votes.new do |f| %>
+    <%= f.hidden_field :voter_id, :value => current_user.id %>
+    <%= f.hidden_field :concern_id, :value => @concern.id %>
+    <%= f.hidden_field :upvote, :value => false %>
+    <%= f.submit "Disagree" %>
+  <% end %>
+  <br>
 <% end %>
-
-<br>
-<br>
-<h4>New Comment</h4>
-<%= form_tag("/concerns/#{@concern.id}/comments") do %>
-  <%= text_area_tag('comment[content]', placeholder="Post a comment") %><br>
-  <%= submit_tag "Create Comment" %>
-<% end %>
-
-
-<%= link_to 'Edit', edit_concern_path(@concern) %> |
-<% end %>
+  <% unless @concern.comments.empty? %>
+    <h4>Previous Comments:</h4>
+    <ul>
+      <% @concern.comments.each do |comment| %>
+        <li><%= comment.content %></li>
+        <%= comment.created_at %><br>
+        <%= @current_user.name %>
+      <% end %>
+    </ul>
+  <% end %>
+  <h4>New Comment</h4>
+  <%= form_tag("/concerns/#{@concern.id}/comments") do %>
+    <%= text_area_tag('comment[content]', placeholder="Post a comment") %><br>
+    <%= submit_tag "Create Comment" %>
+  <% end %>
+  <%= link_to 'Edit', edit_concern_path(@concern) %> |
 <%= link_to 'Back', concerns_path %>
-
-
