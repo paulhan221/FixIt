@@ -5,7 +5,7 @@ class StatesController < ApplicationController
   end
 
   def show
-    @state = State.find(params[:id])
+    @state = State.find(params[:state][:state_id])
 
     legislator = Legislator.new(@state.name)
 
