@@ -46,4 +46,10 @@
     <% end %>
   </tbody>
 </table>
-<%= will_paginate @concerns %>
+
+<div class="page_info">
+  <%= page_entries_info @concerns %>
+</div>
+
+  <%= will_paginate @concerns, :container => false %>
+  
