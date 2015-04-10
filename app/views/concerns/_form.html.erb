@@ -10,17 +10,19 @@
     </div>
   <% end %>
 
-  <div class = "field">
+  <div class = "form-group">
     <%= f.label :title %><br>
-    <%= f.text_field :title %><br>
-    <%= f.label :description %><br>
-    <%= f.text_area :description %><br>
-    <%= f.label :state_id %><br>
-    <%= f.collection_select(:state_id, State.all, :id, :name) %>
-    <%= f.hidden_field :creator_id, :value => current_user.id %>
+    <%= f.text_field :title, class: "form-control"%><br>
   </div>
+  <div class = "form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, class: "form-control"%><br>
+  </div>
+    <%= f.label :state_id %><br>
+    <%= f.collection_select(:state_id, State.all, :id, :name, {:prompt=>true}, {:class=>'form-control'})%>
+    <%= f.hidden_field :creator_id, :value => current_user.id %>
 
   <div class="actions">
-    <%= f.submit %>
+    <br><%= f.submit class: "btn btn-primary" %>
   </div>
 <% end %>

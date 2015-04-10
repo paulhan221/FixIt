@@ -28,52 +28,52 @@
   <div class = "col-md-4">
 
     <h3><%= @state.name %> Senators: </h3>
-    <h2><%= @senator1_first_name %> <%= @senator1_last_name %> (<%=@senator1_party%>)</h2>
-    Phone: <%= @senator1_phone %><br>
-    Email: <%= @senator1_email %><br>
-    Office: <%= @senator1_office %><br><br>
-    Find Senator <%= @senator1_last_name %> online: 
-    <% if !@senator1_website.nil? %>
-    <%= link_to "Website", @senator1_website %>
+    <h2><%= @first_senator.senator1_first_name %> <%= @first_senator.senator1_last_name %> (<%=@first_senator.senator1_party%>)</h2>
+    Phone: <%= @first_senator.senator1_phone %><br>
+    Email: <%= @first_senator.senator1_oc_email %><br>
+    Office: <%= @first_senator.senator1_office %><br><br>
+    Find Senator <%= @first_senator.senator1_last_name %> online: 
+    <% if !@first_senator.senator1_website.nil? %>
+    <%= link_to "Website", @first_senator.senator1_website %>
     <% end %>
-    <% if !@senator1_facebook.nil? %>
-    <%= link_to "Facebook", "http://www.facebook.com/#{@senator1_facebook}" %>
+    <% if !@first_senator.senator1_facebook_id.nil? %>
+    <%= link_to "Facebook", "http://www.facebook.com/#{@first_senator.senator1_facebook_id}" %>
     <% end %>
-    <% if !@senator1_twitter.nil? %>
-    <%= link_to "Twitter", "http://www.twitter.com/#{@senator1_twitter}" %>
+    <% if !@first_senator.senator1_twitter_id.nil? %>
+    <%= link_to "Twitter", "http://www.twitter.senator1_com/#{@first_senator.senator1_twitter_id}" %>
     <% end %>
-    <% if !@senator1_youtube.nil? %>
-    <%= link_to "Youtube", "http://www.youtube.com/#{@senator1_youtube}" %>
+    <% if !@first_senator.senator1_youtube_id.nil? %>
+    <%= link_to "Youtube", "http://www.youtube.com/#{@first_senator.senator1_youtube_id}" %>
     <% end %>
-    <% if !@senator1_votesmart.nil? %>
-    <%= link_to "Votesmart", "http://votesmart.org/candidate/biography/#{@senator1_votesmart}" %>
+    <% if !@first_senator.senator1_votesmart_id.nil? %>
+    <%= link_to "Votesmart", "http://votesmart.org/candidate/biography/#{@first_senator.senator1_votesmart_id}" %>
     <% end %><br>
-    <% if !@senator1_contact.nil? %>
-    <%= link_to "Contact", @senator1_contact %>
+    <% if !@first_senator.senator1_contact_form.nil? %>
+    <%= link_to "Contact", @first_senator.senator1_contact_form %>
     <% end %>
 
-    <h2><%= @senator2_first_name %> <%= @senator2_last_name %> (<%=@senator2_party%>)</h2><br>
-    Phone: <%= @senator2_phone %><br>
-    Email: <%= @senator2_email %><br>
-    Office: <%= @senator2_office %><br><br>
-    Find Senator <%= @senator2_last_name %> online: 
-    <% if !@senator2_website.nil? %>
-    <%= link_to "Website", @senator2_website %>
+    <h2><%= @second_senator.senator2_first_name %> <%= @second_senator.senator2_last_name %> (<%=@second_senator.senator2_party%>)</h2><br>
+    Phone: <%= @second_senator.senator2_phone %><br>
+    Email: <%= @second_senator.senator2_oc_email %><br>
+    Office: <%= @second_senator.senator2_office %><br><br>
+    Find Senator <%= @second_senator.senator2_last_name %> online: 
+    <% if !@second_senator.senator2_website.nil? %>
+    <%= link_to "Website", @second_senator.senator2_website %>
     <% end %>
-    <% if !@senator2_facebook.nil? %>
-    <%= link_to "Facebook", "http://www.facebook.com/#{@senator2_facebook}" %>
+    <% if !@second_senator.senator2_facebook_id.nil? %>
+    <%= link_to "Facebook", "http://www.facebook.com/#{@second_senator.senator2_facebook_id}" %>
     <% end %>
-    <% if !@senator2_twitter.nil? %>
-    <%= link_to "Twitter", "http://www.twitter.com/#{@senator2_twitter}" %>
+    <% if !@second_senator.senator2_twitter_id.nil? %>
+    <%= link_to "Twitter", "http://www.twitter.senator2_com/#{@second_senator.senator2_twitter_id}" %>
     <% end %>
-    <% if !@senator2_youtube.nil? %>
-    <%= link_to "Youtube", "http://www.youtube.com/#{@senator2_youtube}" %>
+    <% if !@second_senator.senator2_youtube_id.nil? %>
+    <%= link_to "Youtube", "http://www.youtube.com/#{@second_senator.senator2_youtube_id}" %>
     <% end %>
-    <% if !@senator2_votesmart.nil? %>
-    <%= link_to "Votesmart", "http://votesmart.org/candidate/biography/#{@senator2_votesmart}" %>
+    <% if !@second_senator.senator2_votesmart_id.nil? %>
+    <%= link_to "Votesmart", "http://votesmart.org/candidate/biography/#{@second_senator.senator2_votesmart_id}" %>
     <% end %><br>
-    <% if !@senator2_contact.nil? %>
-    <%= link_to "Contact", @senator2_contact %>
+    <% if !@second_senator.senator2_contact_form.nil? %>
+    <%= link_to "Contact", @second_senator.senator2_contact_form %>
     <% end %>
   </div>
 </div>

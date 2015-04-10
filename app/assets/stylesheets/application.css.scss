@@ -34,12 +34,31 @@ body {
 .theme-showcase > p > .btn {
   margin: 5px 0;
 }
+
+#welcome {
+  color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
+}
 .jumbotron {
   margin-bottom: 0px;
-    background: url(/assets/flag.jpg)no-repeat center center fixed;
-    background-size: cover;
-
-    color: white;
-    text-shadow: black 0.3em 0.3em 0.3em;
+    background: #1e5799; /* Old browsers */
+    background-image: url(/assets/change-ahead-sign.jpg);
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 50%;
+    width: 100%;
+    color: black;
 
 }
+.form-control {
+  width: 75%;
+}
+
+
+
+
+
+
+
+
+

@@ -1,30 +1,31 @@
 <div class = "jumbotron">
-<h1>Welcome to FixIt</h1>
+<h1 id = "welcome">Welcome to FixIt</h1>
 
-<% if current_user %>
-  <%= link_to "My concerns", user_path(current_user) %>
-<% end %>
+
+
 
 <%= form_tag("/state/concerns", method: "get") do %>
   <%= collection_select(:state, :state_id, State.all, :id, :name) %>
-  <%= submit_tag "FIND" %>
+  <%= submit_tag "Find concerns by state" %>
 <% end %>
-
+<br>
 <% if logged_in? %>
-  <%= link_to "Create concern", new_concern_path %>
+  <%= link_to "Create concern", new_concern_path, class: "btn btn-default" %><br>
 <% else %>
   <%= "Please log in to create a new concern" %>
 <% end %>
 <br />
+</div>
+<br>
 <%= form_tag searches_path, :method => 'get' do %>
   <%= text_field_tag (:keyword) %>
-  <%= submit_tag 'search' %>
+  <%= submit_tag 'search for a concern', class: "btn btn-primary" %>
 <% end %>
-</div>
-<h3>All the concerns</h3>
-<table>
+
+<h3>All Concerns</h3>
+<table class = "table table-striped">
   <thead>
-    <tr>
+    <tr class = "info">
       <td>Concerns</td>
       <td>Upvotes</td>
       <td>Downvotes</td>
@@ -35,7 +36,7 @@
   </thead>
   <tbody>
     <% @concerns.each do |c| %>
-      <tr>
+      <tr class = "warning">
         <td><%= link_to c.title, concern_path(c)%></td>
         <td><%= c.upvote_count %></td>
         <td><%= c.downvote_count %></td>
