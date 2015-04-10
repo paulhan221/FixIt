@@ -2,8 +2,8 @@
 <h2>State: <%= link_to @concern.state.name, state_concerns_path(@concern.state) %></h2>
 <h2><%= @concern.title %></h2>
 <p>Description:<br><%= @concern.description %></p>
-<p><%= @concern.upvote_count %> people agree!</p>
-<p><%= @concern.downvote_count %> people disagree!</p>
+<p><%= @concern.up_votes %> people agree!</p>
+<p><%= @concern.down_votes %> people disagree!</p>
 
 <% if user_can_vote?(@concern) %>
   <%= form_for @concern.votes.new do |f| %>
@@ -36,7 +36,7 @@
   <%= form_tag("/concerns/#{@concern.id}/comments") do %>
     <%= text_area_tag('comment[content]', placeholder="Post a comment") %><br>
     <%= submit_tag "Create Comment" %>
-    <%= link_to 'Edit', edit_concern_path(@concern) %> 
+    <%= link_to 'Edit', edit_concern_path(@concern) %>
   <% end %>
   <% else %>
     <%= "Please Login to Post a Comment" %>
