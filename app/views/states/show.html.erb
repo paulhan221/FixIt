@@ -1,6 +1,8 @@
 <div class="row">
   <div class="col-md-8">
-<h1><%= @state.name %></h1>
+    <div class="text-center"> 
+      <h1><%= @state.name %></h1>
+    </div>
     <% @state.concerns.each do |concern| %>
       <li><%= link_to concern.title, concern_path(concern) %>
       <%= concern.upvote_count %> Agree
@@ -11,9 +13,7 @@
 
   <!---------NYTIMES ARTICLES--------->
 
-
-    <br>
-    <h3> New York Times Articles </h3><br><br>
+  <img src="http://www.nytimes-se.com/nytse/wp-content/themes/nytimes/media/nytlogo379x64.gif" alt="NewYorkTimesLogo" class="img-responsive center-block"> 
     <ul>
     <% @articles.each do |article| %>
       <h4><u><%= link_to article.headline, article.web_url %></u></h4>
