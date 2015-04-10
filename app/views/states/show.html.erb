@@ -5,8 +5,8 @@
     </div>
   <% unless @state.concerns.empty? %>
     <table class="table">
-      <thead>   
-        <tr class ="danger">  
+      <thead>
+        <tr class ="danger">
           <td>Concerns that affect this state</td>
           <td>Agree</td>
           <td>Disagree</td>
@@ -16,8 +16,8 @@
         <% @state.concerns.each do |concern| %>
           <tr class = "warning">
             <td><%= link_to concern.title, concern_path(concern) %></td>
-            <td><%= concern.up_votes %></td>
-            <td><%= concern.down_votes %></td>
+            <td><%= concern.upvotes %></td>
+            <td><%= concern.downvotes %></td>
           </tr>
         <% end %>
       </tbody>
