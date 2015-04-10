@@ -23,6 +23,7 @@
 body {
   padding-top: 0px;
   padding-bottom: 30px;
+  
 }
 
 .theme-dropdown .dropdown-menu {
@@ -41,13 +42,14 @@ body {
 }
 .jumbotron {
   margin-bottom: 0px;
-    background: #1e5799; /* Old browsers */
+    background: #1E4771; /* Old browsers */
     background-image: url(/assets/change-ahead-sign.jpg);
     background-position: right center;
     background-repeat: no-repeat;
     background-size: 50%;
     width: 100%;
     color: black;
+    height: 350px;
 
 }
 .form-control {
