@@ -123,3 +123,64 @@ class Legislator
   #   @results["results"].last["office"]
   # end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+State.all.each do |state|
+   results = HTTParty.get("http://congress.api.sunlightfoundation.com/legislators?title=Sen&state_name=#{URI.encode(state.name)}&apikey=019ce60aedb142ce9962d349c3b51e60")
+   l = Legislator.new(state_id: state.id)
+   ltwo = Legislator.new(state_id: state.id)
+
+   ["first_name", "last_name", "phone", "oc_email", "facebook_id", "twitter_id", "website", "contact_form", "votesmart_id", "youtube_id", "party", "office"].each do |attribute|
+     l.send("#{attribute=}#{results.first[attribute]}")
+     ltwo.send("#{attribute=}#{results.last[attribute]}")
+   end
+   
+   l.save
+   ltwo.save
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
