@@ -6,9 +6,9 @@ class StatesController < ApplicationController
 
   def show
     @state = State.find(state_id)
+    @first_senator = Legislator.where(state_id: @state.id).first
+    @second_senator = Legislator.where(state_id: @state.id).last
 
-    @first_senator = Legislator.new(@state.name)
-    @second_senator = Legislator.new(@state.name)
 
     # @senator1_first_name = first_senator.senator1_first_name
     # @senator1_last_name = first_senator.senator1_last_name

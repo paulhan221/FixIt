@@ -8,12 +8,13 @@
       <%= concern.upvotes %> Agree
       <%= concern.downvotes %> Disagree
       </li>
-
     <% end %>
 
   <!---------NYTIMES ARTICLES--------->
 
   <img src="http://www.nytimes-se.com/nytse/wp-content/themes/nytimes/media/nytlogo379x64.gif" alt="NewYorkTimesLogo" class="img-responsive center-block">
+    <br>
+    <h3> New York Times Articles </h3><br><br>
     <ul>
     <% @articles.each do |article| %>
       <h4><u><%= link_to article.headline, article.web_url %></u></h4>
@@ -26,32 +27,30 @@
 
   <!--------- SENATORS -------->
   <div class = "col-md-4">
-    <div class="thumbnail">
-      <div class="caption">
 
         <h3><%= @state.name %> Senators: </h3>
-        <h2><%= @first_senator.senator1_first_name %> <%= @first_senator.senator1_last_name %> (<%=@first_senator.senator1_party%>)</h2>
+        <h2><%= @first_senator.first_name %> <%= @first_senator.last_name %> (<%=@first_senator.party%>)</h2>
         Phone: <%= @first_senator.senator1_phone %><br>
-        Email: <%= @first_senator.senator1_oc_email %><br>
-        Office: <%= @first_senator.senator1_office %><br><br>
-        Find Senator <%= @first_senator.senator1_last_name %> online:
-        <% if !@first_senator.senator1_website.nil? %>
-        <%= link_to "Website", @first_senator.senator1_website %>
+        Email: <%= @first_senator.oc_email %><br>
+        Office: <%= @first_senator.office %><br><br>
+        Find Senator <%= @first_senator.last_name %> online:
+        <% if !@first_senator.website.nil? %>
+        <%= link_to "Website", @first_senator.website %>
         <% end %>
-        <% if !@first_senator.senator1_facebook_id.nil? %>
-        <%= link_to "Facebook", "http://www.facebook.com/#{@first_senator.senator1_facebook_id}" %>
+        <% if !@first_senator.facebook_id.nil? %>
+        <%= link_to "Facebook", "http://www.facebook.com/#{@first_senator.facebook_id}" %>
         <% end %>
-        <% if !@first_senator.senator1_twitter_id.nil? %>
-        <%= link_to "Twitter", "http://www.twitter.senator1_com/#{@first_senator.senator1_twitter_id}" %>
+        <% if !@first_senator.twitter_id.nil? %>
+        <%= link_to "Twitter", "http://www.twitter.com/#{@first_senator.twitter_id}" %>
         <% end %>
-        <% if !@first_senator.senator1_youtube_id.nil? %>
-        <%= link_to "Youtube", "http://www.youtube.com/#{@first_senator.senator1_youtube_id}" %>
+        <% if !@first_senator.youtube_id.nil? %>
+        <%= link_to "Youtube", "http://www.youtube.com/#{@first_senator.youtube_id}" %>
         <% end %>
-        <% if !@first_senator.senator1_votesmart_id.nil? %>
-        <%= link_to "Votesmart", "http://votesmart.org/candidate/biography/#{@first_senator.senator1_votesmart_id}" %>
+        <% if !@first_senator.votesmart_id.nil? %>
+        <%= link_to "Votesmart", "http://votesmart.org/candidate/biography/#{@first_senator.votesmart_id}" %>
         <% end %><br>
-        <% if !@first_senator.senator1_contact_form.nil? %>
-        <%= link_to "Contact", @first_senator.senator1_contact_form %>
+        <% if !@first_senator.contact_form.nil? %>
+        <%= link_to "Contact", @first_senator.contact_form %>
         <% end %>
         <p><a href="#" class="btn btn-primary" role="button">Send E-mail</a> </p>
       </div>
@@ -85,5 +84,53 @@
         <p><a href="#" class="btn btn-primary" role="button">Send E-mail</a> </p>
       </div>
     </div>
+    <h3><%= @state.name %> Senators: </h3>
+    <h2><%= @first_senator.first_name %> <%= @first_senator.last_name %> (<%=@first_senator.party%>)</h2>
+    Phone: <%= @first_senator.phone %><br>
+    Email: <%= @first_senator.oc_email %><br>
+    Office: <%= @first_senator.office %><br><br>
+    Find Senator <%= @first_senator.last_name %> online:
+    <% if !@first_senator.website.nil? %>
+    <%= link_to "Website", @first_senator.website %>
+    <% end %>
+    <% if !@first_senator.facebook_id.nil? %>
+    <%= link_to "Facebook", "http://www.facebook.com/#{@first_senator.facebook_id}" %>
+    <% end %>
+    <% if !@first_senator.twitter_id.nil? %>
+    <%= link_to "Twitter", "http://www.twitter.com/#{@first_senator.twitter_id}" %>
+    <% end %>
+    <% if !@first_senator.youtube_id.nil? %>
+    <%= link_to "Youtube", "http://www.youtube.com/#{@first_senator.youtube_id}" %>
+    <% end %>
+    <% if !@first_senator.votesmart_id.nil? %>
+    <%= link_to "Votesmart", "http://votesmart.org/candidate/biography/#{@first_senator.votesmart_id}" %>
+    <% end %><br>
+    <% if !@first_senator.contact_form.nil? %>
+    <%= link_to "Contact", @first_senator.contact_form %>
+    <% end %>
+
+    <h2><%= @second_senator.first_name %> <%= @second_senator.last_name %> (<%=@second_senator.party%>)</h2><br>
+    Phone: <%= @second_senator.phone %><br>
+    Email: <%= @second_senator.oc_email %><br>
+    Office: <%= @second_senator.office %><br><br>
+    Find Senator <%= @second_senator.last_name %> online:
+    <% if !@second_senator.website.nil? %>
+    <%= link_to "Website", @second_senator.website %>
+    <% end %>
+    <% if !@second_senator.facebook_id.nil? %>
+    <%= link_to "Facebook", "http://www.facebook.com/#{@second_senator.facebook_id}" %>
+    <% end %>
+    <% if !@second_senator.twitter_id.nil? %>
+    <%= link_to "Twitter", "http://www.twitter.com/#{@second_senator.twitter_id}" %>
+    <% end %>
+    <% if !@second_senator.youtube_id.nil? %>
+    <%= link_to "Youtube", "http://www.youtube.com/#{@second_senator.youtube_id}" %>
+    <% end %>
+    <% if !@second_senator.votesmart_id.nil? %>
+    <%= link_to "Votesmart", "http://votesmart.org/candidate/biography/#{@second_senator.votesmart_id}" %>
+    <% end %><br>
+    <% if !@second_senator.contact_form.nil? %>
+    <%= link_to "Contact", @second_senator.contact_form %>
+    <% end %>
   </div>
 </div>
