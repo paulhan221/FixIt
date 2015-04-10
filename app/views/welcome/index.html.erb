@@ -1,9 +1,6 @@
 <div class = "jumbotron">
 <h1 id = "welcome">Welcome to FixIt</h1>
 
-
-
-
 <%= form_tag("/state/concerns", method: "get") do %>
   <%= collection_select(:state, :state_id, State.all, :id, :name) %>
   <%= submit_tag "Find concerns by state" %>
