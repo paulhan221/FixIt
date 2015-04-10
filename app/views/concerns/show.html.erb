@@ -1,9 +1,22 @@
 <p id="notice"><%= notice %></p>
-<h2>State: <%= link_to @concern.state.name, state_concerns_path(@concern.state) %></h2>
-<h2><%= @concern.title %></h2>
+<div class="text-center"> 
+  <h2>State: <%= link_to @concern.state.name, state_concerns_path(@concern.state) %></h2>
+<h3>Concern: <%= @concern.title %></h3>
+<p><%= "Posted by: #{User.find_by(id: @concern.creator_id).name} " %>|<%= @concern.created_at %></p>
+</div>
 <p>Description:<br><%= @concern.description %></p>
+<div class="row">
+  <div class="col-xs-6 col-md-1">
+    <div class="thumbnail">
+      <p><h3>+<%= @concern.upvote_count %></h3></p>
+    </div>
+  </div>
+</div>
+
 <p><%= @concern.up_votes %> people agree!</p>
 <p><%= @concern.down_votes %> people disagree!</p>
+
+
 
 <% if user_can_vote?(@concern) %>
   <%= form_for @concern.votes.new do |f| %>
@@ -39,6 +52,6 @@
     <%= link_to 'Edit', edit_concern_path(@concern) %>
   <% end %>
   <% else %>
-    <%= "Please Login to Post a Comment" %>
-<% end %><br>
+    <p><%= "Please "%><%= link_to 'Login', login_path%><%= " to Post a Comment" %></p>
+  <% end %><br>
 <%= link_to 'Back', concerns_path %>

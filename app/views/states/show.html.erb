@@ -3,22 +3,41 @@
     <div class="text-center"> 
       <h1><%= @state.name %></h1>
     </div>
-    <% @state.concerns.each do |concern| %>
-      <li><%= link_to concern.title, concern_path(concern) %>
-      <%= concern.upvote_count %> Agree
-      <%= concern.downvote_count %> Disagree
-      </li>
+  <% unless @state.concerns.empty? %>
+    <table class="table">
+      <thead>   
+        <tr class ="danger">  
+          <td>Concerns that affect this state</td>
+          <td>Agree</td>
+          <td>Disagree</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @state.concerns.each do |concern| %>
+          <tr class = "warning">
+            <td><%= link_to concern.title, concern_path(concern) %></td>
+            <td><%= concern.up_votes %></td>
+            <td><%= concern.down_votes %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% end %>
+  <br><br><br><br><br>
 
-    <% end %>
 
   <!---------NYTIMES ARTICLES--------->
 
   <img src="http://www.nytimes-se.com/nytse/wp-content/themes/nytimes/media/nytlogo379x64.gif" alt="NewYorkTimesLogo" class="img-responsive center-block"> 
     <ul>
     <% @articles.each do |article| %>
-      <h4><u><%= link_to article.headline, article.web_url %></u></h4>
-      <h6><%= article.pub_date.gsub(/T.+/, "")%> </h6>
-      <h5>"<%= article.snippet %>"</h5>
+      <div class="thumbnail">
+        <div class="caption">
+          <h4><u><%= link_to article.headline, article.web_url %></u></h4>
+          <h6><%= article.pub_date.gsub(/T.+/, "")%> </h6>
+          <h5>"<%= article.snippet %>"</h5>
+        </div>
+      </div>
     <% end %>
     </ul>
 </div>
@@ -26,10 +45,9 @@
 
   <!--------- SENATORS -------->
   <div class = "col-md-4">
+  <h3><%= @state.name %> Senators: </h3>
     <div class="thumbnail">
       <div class="caption">
-
-        <h3><%= @state.name %> Senators: </h3>
         <h2><%= @first_senator.senator1_first_name %> <%= @first_senator.senator1_last_name %> (<%=@first_senator.senator1_party%>)</h2>
         Phone: <%= @first_senator.senator1_phone %><br>
         Email: <%= @first_senator.senator1_oc_email %><br>
