@@ -2,8 +2,8 @@
 <h2>State: <%= link_to @concern.state.name, state_concerns_path(@concern.state) %></h2>
 <h2><%= @concern.title %></h2>
 <p>Description:<br><%= @concern.description %></p>
-<p><%= @concern.up_votes %> people agree!</p>
-<p><%= @concern.down_votes %> people disagree!</p>
+<p><%= @concern.upvotes %> people agree!</p>
+<p><%= @concern.downvotes %> people disagree!</p>
 
 <% if user_can_vote?(@concern) %>
   <%= form_for @concern.votes.new do |f| %>
@@ -14,7 +14,7 @@
   <% end %>
   <br>
   <%= form_for @concern.votes.new do |f| %>
-    <%= f.hidden_field :voter_id, :value => current_user.id %>
+   <%= f.hidden_field :voter_id, :value => current_user.id %>
     <%= f.hidden_field :concern_id, :value => @concern.id %>
     <%= f.hidden_field :upvote, :value => false %>
     <%= f.submit "Disagree" %>

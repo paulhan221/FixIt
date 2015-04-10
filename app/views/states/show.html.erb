@@ -1,19 +1,19 @@
 <div class="row">
   <div class="col-md-8">
-    <div class="text-center"> 
+    <div class="text-center">
       <h1><%= @state.name %></h1>
     </div>
     <% @state.concerns.each do |concern| %>
       <li><%= link_to concern.title, concern_path(concern) %>
-      <%= concern.upvote_count %> Agree
-      <%= concern.downvote_count %> Disagree
+      <%= concern.upvotes %> Agree
+      <%= concern.downvotes %> Disagree
       </li>
 
     <% end %>
 
   <!---------NYTIMES ARTICLES--------->
 
-  <img src="http://www.nytimes-se.com/nytse/wp-content/themes/nytimes/media/nytlogo379x64.gif" alt="NewYorkTimesLogo" class="img-responsive center-block"> 
+  <img src="http://www.nytimes-se.com/nytse/wp-content/themes/nytimes/media/nytlogo379x64.gif" alt="NewYorkTimesLogo" class="img-responsive center-block">
     <ul>
     <% @articles.each do |article| %>
       <h4><u><%= link_to article.headline, article.web_url %></u></h4>
@@ -34,7 +34,7 @@
         Phone: <%= @first_senator.senator1_phone %><br>
         Email: <%= @first_senator.senator1_oc_email %><br>
         Office: <%= @first_senator.senator1_office %><br><br>
-        Find Senator <%= @first_senator.senator1_last_name %> online: 
+        Find Senator <%= @first_senator.senator1_last_name %> online:
         <% if !@first_senator.senator1_website.nil? %>
         <%= link_to "Website", @first_senator.senator1_website %>
         <% end %>
@@ -63,7 +63,7 @@
         Phone: <%= @second_senator.senator2_phone %><br>
         Email: <%= @second_senator.senator2_oc_email %><br>
         Office: <%= @second_senator.senator2_office %><br><br>
-        Find Senator <%= @second_senator.senator2_last_name %> online: 
+        Find Senator <%= @second_senator.senator2_last_name %> online:
         <% if !@second_senator.senator2_website.nil? %>
         <%= link_to "Website", @second_senator.senator2_website %>
         <% end %>
