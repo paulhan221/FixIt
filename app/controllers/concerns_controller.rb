@@ -4,7 +4,7 @@ class ConcernsController < ApplicationController
   # GET /concerns
   # GET /concerns.json
   def index
-    @concerns = Concern.all
+    @concerns = Concern.order(params[:sort])
   end
 
   # GET /concerns/1

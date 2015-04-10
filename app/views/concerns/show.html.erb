@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
-<div class="text-center"> 
+<div class="text-center">
   <h2>State: <%= link_to @concern.state.name, state_concerns_path(@concern.state) %></h2>
   <h3>Concern: <%= @concern.title %></h3>
   <p><%= "Posted by: #{User.find_by(id: @concern.creator_id).name} " %>|<%= @concern.created_at %></p>
-  <p><%= @concern.up_votes %> people agree!</p>
-  <p><%= @concern.down_votes %> people disagree!</p>
+  <p><%= @concern.upvotes %> people agree!</p>
+  <p><%= @concern.downvotes %> people disagree!</p>
 </div>
+
 
 <div class="col-md-1">
 </div>
@@ -25,7 +26,7 @@
   <% end %>
 
   <%= form_for @concern.votes.new do |f| %>
-    <%= f.hidden_field :voter_id, :value => current_user.id %>
+   <%= f.hidden_field :voter_id, :value => current_user.id %>
     <%= f.hidden_field :concern_id, :value => @concern.id %>
     <%= f.hidden_field :upvote, :value => false %>
     <div class="col-lg-1 box">
