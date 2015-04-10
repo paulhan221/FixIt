@@ -1,20 +1,29 @@
 # FiXit
 
 ###  Things to do
- ===1.  identify current user on the page ( hello, lindsay )
-2.  PAUL = On state concern page say 'there s no concerns for current state'
+1. === identify current user on the page ( hello, lindsay )
+2.  ===  On state concern page say 'there s no concerns for current state'
          if none yet created
 ?3. Fix current tests
 ?4. Implement few new tests. think about it
 5. === fix users index page, to not let any user remove any kind of user.
    ?Add admin
 6. Fix concern display page - if concern exists but user is removed is it still gonna work?
-7. Fix views at least a little bootstrap
+7. === Fix views at least a little bootstrap
 8. === users/new doesn't work - remove such functionality at all?
-10.===  create seed files.
-11.===  Display all the concerns on the home page
-12.=== Implement search for concern.
-13. Filter by most votes
+10. ===  create seed files.
+11. ===  Display all the concerns on the home page
+12. ===  Implement search for concern.
+13. === Filter by most votes
+
+
+14. Pagination   15. Sort by upvotes, downvotes, result, total votes, concerns us
+16. fix facebook url link Paul
+18. Search better
+19. Minor - styling
+20. User profile page
+21. save lagislator to db - paul
+17. Mailing - later paul
 
 ## Description
 

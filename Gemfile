@@ -12,7 +12,7 @@ gem 'omniauth-facebook'
 gem 'httparty', '~> 0.13.3'
 gem 'sunlight', '~> 1.1.0'
 gem 'bootstrap-sass', '~> 3.1.1'
-
+gem 'will_paginate', '~> 3.0.7'
 
 group :development, :test do
   gem 'byebug'
