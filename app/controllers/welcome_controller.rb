@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @concerns = Concern.all
-    @concerns = @concerns.sort_by { |c| c.total_votes }.reverse
+    @concerns = Concern.paginate(page: params[:page], per_page: 10)
+                       .order('title ASC')
   end
 end

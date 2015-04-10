@@ -11,8 +11,7 @@ class VotesController < ApplicationController
   end
 
   private
-
-  def vote_params
-    params.require(:vote).permit(:concern_id, :voter_id, :upvote)
-  end
+    def vote_params
+      params.require(:vote).permit(:concern_id, :voter_id, :upvote)
+    end
 end

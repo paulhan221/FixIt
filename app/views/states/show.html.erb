@@ -3,8 +3,8 @@
 <h1><%= @state.name %></h1>
     <% @state.concerns.each do |concern| %>
       <li><%= link_to concern.title, concern_path(concern) %>
-      <%= concern.upvote_count %> Agree
-      <%= concern.downvote_count %> Disagree
+      <%= concern.up_votes %> Agree
+      <%= concern.down_votes %> Disagree
       </li>
 
     <% end %>

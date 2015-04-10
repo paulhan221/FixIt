@@ -1,9 +1,5 @@
 <div class = "jumbotron">
 <h1 id = "welcome">Welcome to FixIt</h1>
-
-
-
-
 <%= form_tag("/state/concerns", method: "get") do %>
   <%= collection_select(:state, :state_id, State.all, :id, :name) %>
   <%= submit_tag "Find concerns by state" %>
@@ -38,11 +34,16 @@
     <% @concerns.each do |c| %>
       <tr class = "warning">
         <td><%= link_to c.title, concern_path(c)%></td>
-        <td><%= c.upvote_count %></td>
-        <td><%= c.downvote_count %></td>
-        <td><%= c.votes_sum %></td>
-        <td><%= c.total_votes %></td>
+        <td><%= c.up_votes %></td>
+        <td><%= c.down_votes %></td>
+        <td><%= c.result %></td>
+        <td><%= c.total %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<div class="page_info">
+  <%= page_entries_info @concerns %>
+</div>
+<%= will_paginate @concerns, :container => false %>
