@@ -1,6 +1,0 @@
-class WelcomeController < ApplicationController
-  def index
-    @concerns = Concern.all
-    @conceerns = @concerns.sort_by { |c| c.total_votes }
-  end
-end

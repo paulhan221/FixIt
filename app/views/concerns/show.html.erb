@@ -31,10 +31,14 @@
     <% end %>
   </ul>
 <% end %>
-<h4>New Comment</h4>
-<%= form_tag("/concerns/#{@concern.id}/comments") do %>
-  <%= text_area_tag('comment[content]', placeholder="Post a comment") %><br>
-  <%= submit_tag "Create Comment" %>
-<% end %>
-<%= link_to 'Edit', edit_concern_path(@concern) %> |
+<% if logged_in? %>
+  <h4>New Comment</h4>
+  <%= form_tag("/concerns/#{@concern.id}/comments") do %>
+    <%= text_area_tag('comment[content]', placeholder="Post a comment") %><br>
+    <%= submit_tag "Create Comment" %>
+    <%= link_to 'Edit', edit_concern_path(@concern) %> 
+  <% end %>
+  <% else %>
+    <%= "Please Login to Post a Comment" %>
+<% end %><br>
 <%= link_to 'Back', concerns_path %>
