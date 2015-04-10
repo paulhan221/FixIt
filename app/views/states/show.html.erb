@@ -16,8 +16,8 @@
         <% @state.concerns.each do |concern| %>
           <tr class = "warning">
             <td><%= link_to concern.title, concern_path(concern) %></td>
-            <td><%= concern.upvote_count %></td>
-            <td><%= concern.downvote_count %></td>
+            <td><%= concern.up_votes %></td>
+            <td><%= concern.down_votes %></td>
           </tr>
         <% end %>
       </tbody>

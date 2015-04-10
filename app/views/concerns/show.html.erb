@@ -12,7 +12,9 @@
     </div>
   </div>
 </div>
-<p><%= @concern.downvote_count %> people disagree!</p>
+
+<p><%= @concern.up_votes %> people agree!</p>
+<p><%= @concern.down_votes %> people disagree!</p>
 
 
 
@@ -47,7 +49,7 @@
   <%= form_tag("/concerns/#{@concern.id}/comments") do %>
     <%= text_area_tag('comment[content]', placeholder="Post a comment") %><br>
     <%= submit_tag "Create Comment" %>
-    <%= link_to 'Edit', edit_concern_path(@concern) %> 
+    <%= link_to 'Edit', edit_concern_path(@concern) %>
   <% end %>
   <% else %>
     <p><%= "Please "%><%= link_to 'Login', login_path%><%= " to Post a Comment" %></p>
