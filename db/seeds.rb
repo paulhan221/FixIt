@@ -16,7 +16,7 @@ end
   concern.title = Faker::Name.title
   concern.description = Faker::Company.catch_phrase
   concern.state_id = rand(50)
-  concern.creator_id = rand(20)
+  concern.creator_id = rand(10) + 1
   concern.save
 end
 
