@@ -4,14 +4,14 @@ states_array.each do |state|
   State.create(name: state)
 end
 
-100.times do
+10.times do
   user = User.new
   user.name = Faker::Name.name
   user.email = Faker::Internet.email
   user.save
 end
 
-100.times do
+10.times do
   concern = Concern.new
   concern.title = Faker::Name.title
   concern.description = Faker::Company.catch_phrase
@@ -20,15 +20,15 @@ end
   concern.save
 end
 
-1000.times do |i|
-  uid = rand(100) + 1
-  cid = rand(100) + 1
+100.times do |i|
+  uid = rand(10) + 1
+  cid = rand(10) + 1
   Vote.create(voter_id: uid, concern_id: cid, upvote: true)
 end
 
 
-1000.times do |i|
-  uid = rand(100) + 1
-  cid = rand(100) + 1
+100.times do |i|
+  uid = rand(10) + 1
+  cid = rand(10) + 1
   Vote.create(voter_id: uid, concern_id: cid, upvote: false)
 end
