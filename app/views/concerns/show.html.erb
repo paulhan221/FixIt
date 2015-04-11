@@ -5,13 +5,6 @@
 <p><%= "Posted by: #{User.find_by(id: @concern.creator_id).name} " %>|<%= @concern.created_at %></p>
 </div>
 <p>Description:<br><%= @concern.description %></p>
-<div class="row">
-  <div class="col-xs-6 col-md-1">
-    <div class="thumbnail">
-      <p><h3>+<%= @concern.upvote_count %></h3></p>
-    </div>
-  </div>
-</div>
 
 <p><%= @concern.up_votes %> people agree!</p>
 <p><%= @concern.down_votes %> people disagree!</p>

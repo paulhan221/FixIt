@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 20150410165907) do
     t.integer  "total",       default: 0
   end
 
+  create_table "legislators", force: :cascade do |t|
+    t.string  "first_name"
+    t.string  "last_name"
+    t.string  "phone"
+    t.string  "oc_email"
+    t.string  "facebook_id"
+    t.string  "twitter_id"
+    t.string  "website"
+    t.string  "contact_form"
+    t.string  "votesmart_id"
+    t.string  "youtube_id"
+    t.string  "party"
+    t.string  "office"
+    t.integer "state_id"
+  end
+
   create_table "states", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false

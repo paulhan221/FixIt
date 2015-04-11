@@ -1,5 +1,7 @@
 class CommentsController < ApplicationController
-	def create
+	
+
+  def create
 		@concern = Concern.find(params[:concern_id])
 		@concern.comments.create(comment_params)
 		redirect_to "/concerns/#{params[:concern_id]}"
