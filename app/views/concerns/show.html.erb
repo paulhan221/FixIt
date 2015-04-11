@@ -21,7 +21,7 @@
       <button type="submit" class="center-block btn btn-success btn-lg">Agree</button>
     </div>
   <% end %>
-
+<br>
   <%= form_for @concern.votes.new do |f| %>
    <%= f.hidden_field :voter_id, :value => current_user.id %>
     <%= f.hidden_field :concern_id, :value => @concern.id %>
@@ -37,19 +37,23 @@
   <ul>
     <% @concern.comments.each do |comment| %>
       <li><%= comment.content %></li>
+      <%= comment.user.name %>
       <%= comment.created_at %><br>
-      <%= @current_user.name %>
     <% end %>
   </ul>
 <% end %>
+
+<div class = "form-group">
 <% if logged_in? %>
   <h4>New Comment</h4>
   <%= form_tag("/concerns/#{@concern.id}/comments") do %>
+    <%= hidden_field_tag('comment[user_id]', value = @current_user.id) %>
     <%= text_area_tag('comment[content]', placeholder="Post a comment") %><br>
     <%= submit_tag "Create Comment" %>
-    <%= link_to 'Edit', edit_concern_path(@concern) %>
   <% end %>
   <% else %>
     <p><%= "Please "%><%= link_to 'Login', login_path%><%= " to Post a Comment" %></p>
   <% end %>
+</div>
+
 <%= link_to 'Back', concerns_path %>
