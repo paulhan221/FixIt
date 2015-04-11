@@ -3,17 +3,14 @@
   <h2>State: <%= link_to @concern.state.name, state_concerns_path(@concern.state) %></h2>
   <h3>Concern: <%= @concern.title %></h3>
   <p><%= "Posted by: #{User.find_by(id: @concern.creator_id).name} " %>|<%= @concern.created_at %></p>
+
+<div class="text-center">
+    <p><h4>Description:</h4></p>
+    <p><%= @concern.description %></p>
+</div>
   <p><%= @concern.upvotes %> people agree!</p>
   <p><%= @concern.downvotes %> people disagree!</p>
 </div>
-
-
-<div class="col-md-1">
-</div>
-    <p><h4>Description:</h4></p>
-<div class="col-md-1">
-</div>
-    <p><%= @concern.description %></p>
 
 <% if user_can_vote?(@concern) %>
   <%= form_for @concern.votes.new do |f| %>
