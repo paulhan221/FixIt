@@ -6,7 +6,8 @@
 <% end %>
 <br>
 <% if logged_in? %>
-  <%= link_to "Create concern", new_concern_path, class: "btn btn-default" %><br>
+<br><br>
+  <%= link_to "Create a new concern", new_concern_path, class: "btn btn-default" %><br>
 <% else %>
   <%= "Please log in to create a new concern" %>
 <% end %>

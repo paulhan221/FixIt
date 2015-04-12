@@ -48,8 +48,8 @@
   <h4>New Comment</h4>
   <%= form_tag("/concerns/#{@concern.id}/comments") do %>
     <%= hidden_field_tag('comment[user_id]', value = @current_user.id) %>
-    <%= text_area_tag('comment[content]', placeholder="Post a comment") %><br>
-    <%= submit_tag "Create Comment" %>
+    <%= text_area_tag('comment[content]') %><br>
+    <%= submit_tag "Create Comment", class: "btn btn-primary" %>
   <% end %>
   <% else %>
     <p><%= "Please "%><%= link_to 'Login', login_path%><%= " to Post a Comment" %></p>

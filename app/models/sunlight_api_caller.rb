@@ -19,5 +19,4 @@ class SunlightApiCaller
       end
     end
   end
-
 end
