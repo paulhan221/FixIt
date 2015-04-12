@@ -9,10 +9,11 @@ class Legislator
 
   # def get_results
   #   @results ||= HTTParty.get("http://congress.api.sunlightfoundation.com/legislators?title=Sen&state_name=#{URI.encode(state_name)}&apikey=019ce60aedb142ce9962d349c3b51e60")
+  # # end
+
+  # def state_name
+  #   State.find(self.state_id).name 
   # end
-  def state_name
-    State.find(self.state_id).name 
-  end
   ###### Senator 1 ######
 
   # senator_attributes = ["first_name", "last_name", "phone", "oc_email", "facebook_id", "twitter_id", "website", "contact_form", "votesmart_id", "youtube_id", "party", "office"]

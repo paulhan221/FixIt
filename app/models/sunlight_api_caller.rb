@@ -4,14 +4,16 @@ class SunlightApiCaller
   
   def self.update_senators
     Legislator.destroy_all
+
     State.all.each do |state|
       url = "http://congress.api.sunlightfoundation.com/legislators?title=Sen&state_name=#{URI.encode(state.name)}&apikey=#{ENV["SUNLIGHT_API_KEY"]}"
       json = JSON.load(open(url))
+
       json["results"].each do |senator_json|
-        senator = Legislator.new
-        senator.state_id = state.id
+        senator = Legislator.new(state_id: state.id)
+        
         ATTRS.each do |attribute|
-          senator.send("#{attribute}=".to_sym, senator_json[attribute])
+          senator.send("#{attribute}=", senator_json[attribute])
         end
         senator.save 
       end

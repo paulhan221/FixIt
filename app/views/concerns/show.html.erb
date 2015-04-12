@@ -2,7 +2,7 @@
 <div class="text-center">
   <h2>State: <%= link_to @concern.state.name, state_concerns_path(@concern.state) %></h2>
   <h3>Concern: <%= @concern.title %></h3>
-  <p><%= "Posted by: #{User.find_by(id: @concern.creator_id).name} " %>|<%= @concern.created_at %></p>
+  <p>Posted by: <%= link_to @concern.creator.name, user_path(@concern.creator)%> at <%= @concern.created_at.strftime("%B %d, %Y %r") %></p>
 
 <div class="text-center">
     <p><h4>Description:</h4></p>

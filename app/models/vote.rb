@@ -15,4 +15,12 @@ class Vote < ActiveRecord::Base
     c.total += 1
     c.save
   end
+
+  def vote_result
+    if self.upvote == true
+      return "Agreed"
+    else
+      return "Disagreed"
+    end
+  end
 end

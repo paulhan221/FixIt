@@ -1,7 +1,64 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @user.name %></h1>
-<h3>Concerns:</h3><ul>
-  <% @user.created_concerns.each do |concern| %>
-    <li><%= link_to concern.title, concern_path(concern) %></li>
-  <% end %>
-</ul>
+<h3><u>All concerns posted by <%=@user.name%></u></h3>
+
+<table class = "table table-striped">
+  <thead>
+    <tr class = "info">
+      <td>Title</td>
+      <td>Upvotes</td>
+      <td>Downvotes</td>
+      <td>Posted on</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.created_concerns.each do |concern| %>
+      <tr class = "warning">
+          <td><%= link_to concern.title, concern_path(concern) %></td>
+          <td><%= concern.upvotes %></td>
+          <td><%= concern.downvotes %></td>
+          <td><%= concern.created_at.strftime("%B %d, %Y %r") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+<h3><u>All Concerns <%= @user.name%> voted on</u></h3>
+  <table class = "table table-striped">
+  <thead>
+    <tr class = "info">
+      <td>Title</td>
+      <td>Agreed/Disagreed</td>
+      <td>Voted on</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.votes.each do |vote| %>
+      <tr class = "warning">
+          <td><%= link_to vote.concern.title, concern_path(vote.concern) %></td>
+          <td><%= vote.vote_result %></td>
+          <td><%= vote.created_at.strftime("%B %d, %Y %r") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <h3><u>All Concerns <%= @user.name%> commented on</u></h3>
+  <table class = "table table-striped">
+  <thead>
+    <tr class = "info">
+      <td>Title</td>
+      <td>Content</td>
+      <td>Commented on</td>
+    </tr>
+  </thead>
+  <tbody>
+    <% @user.comments.each do |comment| %>
+      <tr class = "warning">
+          <td><%= link_to comment.concern.title, concern_path(comment.concern) %></td>
+          <td><%= comment.content %></td>
+          <td><%= comment.created_at.strftime("%B %d, %Y %r") %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
