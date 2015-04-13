@@ -43,8 +43,9 @@ class StatesController < ApplicationController
       @articles << Article.new(@state.name, article["headline"]["main"], article["web_url"], article["snippet"], article["abstract"], article["pub_date"])
     end
   end
+
   private
-  def state_id
-    params[:state] ? params[:state][:state_id] : params[:format]
-  end
+    def state_id
+      params[:state] ? params[:state][:state_id] : params[:format]
+    end
 end
