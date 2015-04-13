@@ -19,10 +19,10 @@
       <% @results.each do |res| %>
         <tr>
           <td><%= link_to res.title, res %></td>
-          <td><%= res.upvote_count %></td>
-          <td><%= res.downvote_count %></td>
-          <td><%= res.votes_sum %></td>
-          <td><%= res.total_votes %></td>
+          <td><%= res.upvotes %></td>
+          <td><%= res.downvotes %></td>
+          <td><%= res.result %></td>
+          <td><%= res.total %></td>
         </tr>
       <% end %>
     </tbody>
