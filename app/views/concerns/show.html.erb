@@ -21,7 +21,7 @@
       <button type="submit" class="center-block btn btn-success btn-lg">Agree</button>
     </div>
   <% end %>
-<br>
+
   <%= form_for @concern.votes.new do |f| %>
    <%= f.hidden_field :voter_id, :value => current_user.id %>
     <%= f.hidden_field :concern_id, :value => @concern.id %>
