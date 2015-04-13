@@ -1,24 +1,25 @@
 <div class = "jumbotron">
-<h1 id = "welcome">Welcome to FixIt</h1>
-<%= form_tag("/state/concerns", method: "get") do %>
-  <%= collection_select(:state, :state_id, State.all, :id, :name) %>
-  <%= submit_tag "Find concerns by state" %>
-<% end %>
-<br>
-<% if logged_in? %>
+  <h1 id = "welcome">Welcome to FixIt</h1><br>
+  <%= form_tag("/state/concerns", method: "get") do %>
+    <%= collection_select(:state, :state_id, State.all, :id, :name) %>
+    <%= submit_tag "Find concerns by state", class: "btn btn-primary" %>
+  <% end %>
+</div>
 <br><br>
-  <%= link_to "Create a new concern", new_concern_path, class: "btn btn-default" %><br>
-<% else %>
-  <%= "Please log in to create a new concern" %>
-<% end %>
-<br />
+<div class="concerns">
+  <% if logged_in? %>
+    <%= link_to "Post a New Concern", new_concern_path, class: "btn btn-primary" %><br>
+  <% else %>
+    <%= "Please log in to create a new concern" %>
+  <% end %>
 </div>
 <br>
-<%= form_tag searches_path, :method => 'get' do %>
-  <%= text_field_tag (:keyword) %>
-  <%= submit_tag 'search for a concern', class: "btn btn-primary" %>
-<% end %>
-
+<div class ="search-concerns">
+  <%= form_tag searches_path, :method => 'get' do %>
+    <%= text_field_tag (:keyword) %>
+    <%= submit_tag 'search for a concern', class: "btn btn-primary" %>
+  <% end %>
+</div>
 <h3>All Concerns</h3>
 <table class = "table table-striped">
   <thead>
